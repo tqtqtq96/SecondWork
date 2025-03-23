@@ -12,21 +12,22 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Date;
-@TableName("user")
+@TableName("users")
 public class User {
     @TableId(type = IdType.AUTO)
     private Integer id;
     private String userName;
     private String email;
     private String password;
-    private Date registrationDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime  registrationDate;
     private String status;
 
     // 无参构造函数
     public User() {}
 
     // 全参构造函数
-    public User(String userName, String email, String password, Date registrationDate, String status) {
+    public User(String userName, String email, String password, LocalDateTime  registrationDate, String status) {
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -67,11 +68,11 @@ public class User {
         this.password = password;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDateTime  getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDateTime  registrationDate) {
         this.registrationDate = registrationDate;
     }
 

@@ -1,5 +1,6 @@
-package com.example.demo.controller;
+package com.webace.secondwork.common;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.io.Serializable;
  * @param <T>
  */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL) // 避免 null 值影响 JSON 解析
 public class Result<T> implements Serializable {
 
     private Integer code; //编码：1成功，0和其它数字为失败
